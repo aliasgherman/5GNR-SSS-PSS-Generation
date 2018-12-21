@@ -71,3 +71,7 @@ for i in range(0, 3):
     PSS.append( generate_d_n(i) )
     
 res = corr_PSS(PSS)
+
+resExport = pd.DataFrame(res, columns=['PSS 0', 'PSS 1', 'CORR', 'XCORR_LAG_0'])
+print(resExport.head(10))
+resExport.to_csv('PCI_PSS_Correlations.csv')
