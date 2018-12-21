@@ -68,19 +68,18 @@ def x1(m, depth):
 def m0(NID1, NID2):
     assert (NID1 >= 0) and (NID1 <= 335)
     assert (NID2 >= 0) and (NID2 <= 2)
-    return ((3 * math.floor( NID1 / 112)) + (NID2))
+    return ((15 * math.floor( NID1 / 112)) + 5* (NID2))
 
-def m1(NID1, m0):
+def m1(NID1):
     assert (NID1 >= 0) and (NID1 <= 335)
-    return ((NID1 % 112) + m0 + 1)
+    return ((NID1 % 112))
 
 def d(n, NIDCELL):
     assert (NIDCELL >= 0) and (NIDCELL <= 1007)
     NID1 = math.floor(NIDCELL / 3)
     NID2 = NIDCELL % 3
-    
-    return (  (1 - (2 * df1.iloc[( (n + m0(NID1, NID2))           % 127)].X0_of_M) ) 
-            * (1 - (2 * df2.iloc[((n + m1(NID1, m0(NID1, NID2))) % 127)].X1_of_M) ) )
+    return (  (1 - (2 * df1.iloc[( (n + m0(NID1, NID2) ) % 127)].X0_of_M) ) 
+            * (1 - (2 * df2.iloc[( (n + m1(NID1)       ) % 127)].X1_of_M) ))
 
 def generate_d_n(NIDCELL):
     res = []
