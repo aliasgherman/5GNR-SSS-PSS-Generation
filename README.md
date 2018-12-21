@@ -41,5 +41,5 @@ These include calculated values for the SSS sequence x0(m) for m between 0 to 12
 These include calculated values for the SSS sequence x1(m) for m between 0 to 127
 
 # File Name : PCI_SSS_Correlations.csv
-This file includes results of each PCI value compared to all other PCI values and the number of entries which were same on same index. (Same subcarrier and same value of transmission. Higher the value, higher the interference)
+This file includes results of each PCI value compared to all other PCI values and the number of entries which were same on same index. 
   
