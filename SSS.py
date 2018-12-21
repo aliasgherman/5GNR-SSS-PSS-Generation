@@ -81,6 +81,12 @@ def d(n, NIDCELL):
     
     return (  (1 - (2 * df1.iloc[( (n + m0(NID1, NID2))           % 127)].X0_of_M) ) 
             * (1 - (2 * df2.iloc[((n + m1(NID1, m0(NID1, NID2))) % 127)].X1_of_M) ) )
+
+def generate_d_n(NIDCELL):
+    res = []
+    for i in range(0, 127):
+        res.append(d(i, NIDCELL))
+    return res
             
 
 def corr_SSS(sss):
@@ -97,11 +103,9 @@ df1 = pd.read_csv('X0_of_M.csv')
 df2 = pd.read_csv('X1_of_M.csv')
 
 SSS = []
+
 for j in range(0, 1008):
-    seqtemp = []
-    for i in range(0, 127):
-        seqtemp.append(d(i, j))
-    SSS.append(seqtemp)
+    SSS.append(generate_d_n(j))
 
 res = corr_SSS(SSS)
 resExport = pd.DataFrame(res, columns=['PCI1', 'PCI2', 'CORRELATION'])
