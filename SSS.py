@@ -93,8 +93,8 @@ def corr_SSS(sss):
     res = []
     for i in range(0, len(sss)):
         for j in range(i + 1, len(sss)):
-            print("Corr PCI ",j, i, np.sum( np.array(sss[j]) == np.array(sss[i])))
-            res.append([j, i, np.sum( np.array(sss[j]) == np.array(sss[i])) ])
+            #print("Corr PCI ",j, i, np.sum( np.array(sss[j]) == np.array(sss[i])))
+            res.append([j, i, np.sum( np.array(sss[j]) == np.array(sss[i])), np.correlate(sss[j], sss[i], 'valid')[0] ] )
     return res
 
 
@@ -107,5 +107,6 @@ for j in range(0, 1008):
     SSS.append(generate_d_n(j))
 
 res = corr_SSS(SSS)
-resExport = pd.DataFrame(res, columns=['PCI1', 'PCI2', 'CORRELATION'])
+resExport = pd.DataFrame(res, columns=['PCI1', 'PCI2', 'CORRELATION', 'XCORR_LAG_0'])
+print(resExport.head())
 resExport.to_csv('PCI_SSS_Correlations.csv')
