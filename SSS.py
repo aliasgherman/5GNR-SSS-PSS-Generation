@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Dec 21 08:01:07 2018
-
 @author: aamhabiby
 """
 ###################################################################################################
@@ -94,7 +93,7 @@ def corr_SSS(sss):
     for i in range(0, len(sss)):
         for j in range(i + 1, len(sss)):
             #print("Corr PCI ",j, i, np.sum( np.array(sss[j]) == np.array(sss[i])))
-            res.append([j, i, np.sum( np.array(sss[j]) == np.array(sss[i])), np.correlate(sss[j], sss[i], 'valid')[0] ] )
+            res.append([i, j, np.sum( np.array(sss[i]) == np.array(sss[j])), np.correlate(sss[i], sss[j], 'valid')[0] ] )
     return res
 
 
