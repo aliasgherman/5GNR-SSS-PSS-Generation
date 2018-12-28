@@ -9,25 +9,25 @@ Kindly report any problems to aliasgherman@gmail.com
 
 # File Name : PSSGen.py
 PSS generation depends on sequence functions as defined in 3GPP 38.211 which include
-  x(m)
-  m(n)
-  d(n)
+  * x(m)
+  * m(n)
+  * d(n)
 All these are included in the file so that the final output can be gathered by calling the function 
-  generate_d_n( <VALUE of PSS> )
-    where <VALUE OF PSS> can be 0, 1 or 2
+  * generate_d_n( [VALUE of PSS] )
+    * where [VALUE OF PSS] can be 0, 1 or 2
 
 Another function tries to check for correlation using same sequence values on same index (to get an idea of interference between two specific values of PSS). This is for some research but you may use / modify as per your usage.
 
 # File Name : SSSGen.py
 SSS generation depends on sequence functions as defined in 3GPP 38.211 which include
-  x0(m)
-  x1(m)
-  m0(PSS, SSS)
-  m1(SSS, m0)
-  d(n)
+  * x0(m)
+  * x1(m)
+  * m0(PSS, SSS)
+  * m1(SSS, m0)
+  * d(n)
 All these are included in the file so that the final output can be gathered by calling the function
-  generate_d_n(<VALUE OF PCI>)
-    where <VALUE OF PCI> is from 0 to 1007
+  * generate_d_n([VALUE OF PCI])
+    * where [VALUE OF PCI] is from 0 to 1007
   
 Another function tries to check for correlation using same sequence values on same index to get correlation between different PCI values.
 
